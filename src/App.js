@@ -1,25 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import ghostImage from "./assets/images/ghost.jpg";
+import cyberImage from "./assets/images/cyberpunk.webp";
+import mafiaImage from "./assets/images/mafia.jpg";
+
+const imageStyle = {
+  verticalalign: "middle",
+  width: "80px",
+  height: "80px",
+  borderRadius: "50%"
+};
+
+const divStyle = {
+  backgroundColor: "black",
+  color: "white",
+  margin: "20px"
+};
 
 function App() {
+  let games = [
+    {
+      name: "Ghost of Tsushima",
+      releaseDate: new Date(2020, 7, 17),
+      imageSrc: ghostImage
+    },
+    {
+      name: "Cyberpunk 2077",
+      releaseDate: new Date(2020, 11, 19),
+      imageSrc: cyberImage
+    },
+    {
+      name: "Mafia: Definitive Edition",
+      releaseDate: new Date(2020, 8, 28),
+      imageSrc: mafiaImage
+    }
+  ];
+  games.sort((a, b) => a.releaseDate - b.releaseDate);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {games.map((game, index) => (
+        <div style={divStyle} key={index}>
+          <img style={imageStyle} src={game.imageSrc} />
+          <p>{game.name}</p>
+          <p>{game.releaseDate.toUTCString()}</p>
+        </div>
+      ))}
+    </>
   );
 }
 
