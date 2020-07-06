@@ -8,13 +8,16 @@ const imageStyle = {
   verticalalign: "middle",
   width: "80px",
   height: "80px",
-  borderRadius: "50%"
+  borderRadius: "50%",
 };
 
 const divStyle = {
-  backgroundColor: "black",
-  color: "white",
-  margin: "20px"
+  backgroundColor: "white",
+  color: "black",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
 };
 
 function App() {
@@ -22,23 +25,23 @@ function App() {
     {
       name: "Ghost of Tsushima",
       releaseDate: new Date(2020, 7, 17),
-      imageSrc: ghostImage
+      imageSrc: ghostImage,
     },
     {
       name: "Cyberpunk 2077",
       releaseDate: new Date(2020, 11, 19),
-      imageSrc: cyberImage
+      imageSrc: cyberImage,
     },
     {
       name: "Mafia: Definitive Edition",
       releaseDate: new Date(2020, 8, 28),
-      imageSrc: mafiaImage
-    }
+      imageSrc: mafiaImage,
+    },
   ];
   games.sort((a, b) => a.releaseDate - b.releaseDate);
 
   return (
-    <>
+    <section class="mainApp">
       {games.map((game, index) => (
         <div style={divStyle} key={index}>
           <img style={imageStyle} src={game.imageSrc} />
@@ -46,7 +49,7 @@ function App() {
           <p>{game.releaseDate.toUTCString()}</p>
         </div>
       ))}
-    </>
+    </section>
   );
 }
 
