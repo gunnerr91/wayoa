@@ -1,10 +1,36 @@
 body {
-  background-color: black;
+  background-color: #a7a7a7;
+  padding: 10px;
 }
 
 .mainApp {
   display: grid;
   gap: 1rem;
+  align-content: center;
+  /* justify-content: center; */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
 
-  grid-template-columns: repeat(auto-fit, minmax(400px, 3fr));
+.commonDivStyle {
+  background-color: white;
+  color: black;
+  display: grid;
+  grid-template-columns: min-content max-content;
+  column-gap: 2rem;
+  row-gap: 5vh;
+  align-items: center;
+  padding: 10px;
+}
+
+.imageStyle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+}
+
+.textStyle {
+  text-transform: uppercase;
+  color: gray;
+  margin-top: -2px;
 }
